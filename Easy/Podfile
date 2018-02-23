@@ -1,0 +1,12 @@
+platform :ios, '9.0'
+
+target 'Easy' do
+  use_frameworks!
+
+  pod 'GoogleMaps'
+
+  target 'EasyTests' do
+    inherit! :search_paths
+  end
+
+end
