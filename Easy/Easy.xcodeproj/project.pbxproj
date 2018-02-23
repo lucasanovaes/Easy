@@ -10,6 +10,11 @@
 		45451E7395FB26FDDAB66AB8 /* Pods_EasyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26F5241A2A7AD63B64E40EB /* Pods_EasyTests.framework */; };
 		4C27D6A7203F456F00863983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27D6A6203F456F00863983 /* AppDelegate.swift */; };
 		4C27D6BC203F456F00863983 /* EasyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27D6BB203F456F00863983 /* EasyTests.swift */; };
+		4C27D6C82040373600863983 /* EasyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27D6C72040373600863983 /* EasyAPI.swift */; };
+		4C27D6CA20403F8F00863983 /* MapControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27D6C920403F8F00863983 /* MapControllerViewModel.swift */; };
+		4C27D6CC2040403200863983 /* TaxiMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27D6CB2040403200863983 /* TaxiMarker.swift */; };
+		4C27D6CF20404F2500863983 /* SourceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27D6CE20404F2500863983 /* SourceDestinationView.swift */; };
+		4C27D6D120404F4A00863983 /* SourceDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C27D6D020404F4A00863983 /* SourceDestinationView.xib */; };
 		59066A82E204D41928696A4B /* Pods_Easy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86FE2ADA7175569A9880340 /* Pods_Easy.framework */; };
 		DE2A432C203F983300949DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2A4329203F983300949DB0 /* Assets.xcassets */; };
 		DE2A432D203F983300949DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2A432A203F983300949DB0 /* LaunchScreen.storyboard */; };
@@ -37,6 +42,11 @@
 		4C27D6B7203F456F00863983 /* EasyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C27D6BB203F456F00863983 /* EasyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTests.swift; sourceTree = "<group>"; };
 		4C27D6BD203F456F00863983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C27D6C72040373600863983 /* EasyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyAPI.swift; sourceTree = "<group>"; };
+		4C27D6C920403F8F00863983 /* MapControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControllerViewModel.swift; sourceTree = "<group>"; };
+		4C27D6CB2040403200863983 /* TaxiMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMarker.swift; sourceTree = "<group>"; };
+		4C27D6CE20404F2500863983 /* SourceDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDestinationView.swift; sourceTree = "<group>"; };
+		4C27D6D020404F4A00863983 /* SourceDestinationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceDestinationView.xib; sourceTree = "<group>"; };
 		92B99FAFD21F5562973836B1 /* Pods-Easy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy/Pods-Easy.release.xcconfig"; sourceTree = "<group>"; };
 		B4FE9A78A53B907985B5F36B /* Pods-EasyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyTests/Pods-EasyTests.release.xcconfig"; sourceTree = "<group>"; };
 		D26F5241A2A7AD63B64E40EB /* Pods_EasyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +105,7 @@
 			children = (
 				4C27D6A6203F456F00863983 /* AppDelegate.swift */,
 				DE2A432E203F989900949DB0 /* Coordinator.swift */,
+				4C27D6C62040372E00863983 /* Network */,
 				DE2A4330203F9E3C00949DB0 /* Map */,
 				DE2A4328203F983300949DB0 /* Resources */,
 			);
@@ -108,6 +119,23 @@
 				4C27D6BD203F456F00863983 /* Info.plist */,
 			);
 			path = EasyTests;
+			sourceTree = "<group>";
+		};
+		4C27D6C62040372E00863983 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4C27D6C72040373600863983 /* EasyAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4C27D6CD20404EFC00863983 /* Address Component */ = {
+			isa = PBXGroup;
+			children = (
+				4C27D6CE20404F2500863983 /* SourceDestinationView.swift */,
+				4C27D6D020404F4A00863983 /* SourceDestinationView.xib */,
+			);
+			path = "Address Component";
 			sourceTree = "<group>";
 		};
 		75C685BE51FED2A4A302941D /* Frameworks */ = {
@@ -143,8 +171,11 @@
 		DE2A4330203F9E3C00949DB0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				4C27D6CD20404EFC00863983 /* Address Component */,
 				DE2A4331203F9E5100949DB0 /* MapController.swift */,
 				DE2A4332203F9E5100949DB0 /* MapController.xib */,
+				4C27D6C920403F8F00863983 /* MapControllerViewModel.swift */,
+				4C27D6CB2040403200863983 /* TaxiMarker.swift */,
 				DE2A4335203FA04000949DB0 /* UserLocationManager.swift */,
 			);
 			path = Map;
@@ -239,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C27D6D120404F4A00863983 /* SourceDestinationView.xib in Resources */,
 				DE2A4334203F9E5100949DB0 /* MapController.xib in Resources */,
 				DE2A432C203F983300949DB0 /* Assets.xcassets in Resources */,
 				DE2A432D203F983300949DB0 /* LaunchScreen.storyboard in Resources */,
@@ -347,7 +379,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -362,9 +394,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE2A432F203F989900949DB0 /* Coordinator.swift in Sources */,
+				4C27D6C82040373600863983 /* EasyAPI.swift in Sources */,
 				DE2A4333203F9E5100949DB0 /* MapController.swift in Sources */,
+				4C27D6CC2040403200863983 /* TaxiMarker.swift in Sources */,
+				4C27D6CF20404F2500863983 /* SourceDestinationView.swift in Sources */,
 				4C27D6A7203F456F00863983 /* AppDelegate.swift in Sources */,
 				DE2A4336203FA04000949DB0 /* UserLocationManager.swift in Sources */,
+				4C27D6CA20403F8F00863983 /* MapControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,16 +25,28 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_marker_user_location" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-NS-NG8">
+                    <rect key="frame" x="135" y="259" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Jah-g7-y4h"/>
+                        <constraint firstAttribute="height" constant="50" id="OLi-9j-vBa"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="u4o-Sm-7EP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="83P-ej-zsc"/>
+                <constraint firstItem="JmY-NS-NG8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9b1-e1-X06"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="u4o-Sm-7EP" secondAttribute="bottom" id="La7-fb-HKK"/>
                 <constraint firstItem="u4o-Sm-7EP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RZb-zz-4eh"/>
+                <constraint firstItem="JmY-NS-NG8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iRo-LJ-qgs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u4o-Sm-7EP" secondAttribute="trailing" id="xZx-fo-b7G"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_marker_user_location" width="400" height="400"/>
+    </resources>
 </document>

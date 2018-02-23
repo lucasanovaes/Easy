@@ -12,23 +12,37 @@ import GoogleMaps
 class MapController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
-    
-    let userLocationManager = UserLocationManager()
+        
+    let viewModel = MapControllerViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userLocationManager.delegate = self
-        userLocationManager.startUpdateLocations { (hasAuthorization) in
+        mapView.delegate = self
+        
+        viewModel.userLocationManager.delegate = self
+        viewModel.userLocationManager.startUpdateLocations { (hasAuthorization) in
             // show error handler
         }
     }
 
 }
 
-extension MapController: UserLocationManagerDelegate{
+extension MapController: UserLocationManagerDelegate, GMSMapViewDelegate{
     
-    func userLocationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+    func userLocationManager(_ manager: CLLocationManager, didUpdateLocation location: CLLocation, camera: GMSCameraPosition) {
+        mapView.camera = camera
+        
+        viewModel.reverseGeocoding(for: location.coordinate) { (address) in
+            // set address in address component
+        }
     }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        viewModel.fetchTaxis { [weak self] (taxis) in
+            self?.mapView.clear()
+        }
+    }
+    
 }
+

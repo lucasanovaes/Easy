@@ -8,14 +8,19 @@
 
 import Foundation
 import CoreLocation
+import GoogleMaps
 
 protocol UserLocationManagerDelegate: class{
-    func userLocationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    func userLocationManager(_ manager: CLLocationManager, didUpdateLocation location: CLLocation, camera: GMSCameraPosition)
 }
 
 final class UserLocationManager: NSObject{
     
-    private let locationManager = CLLocationManager()
+    private let locationManager: CLLocationManager = CLLocationManager()
+    private var gmsCameraPosition: GMSCameraPosition = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), zoom: 0.0)
+
+    var userLocation: CLLocation?
+    
     weak var delegate: UserLocationManagerDelegate?
     
     init(delegate: UserLocationManagerDelegate? = nil){
@@ -36,12 +41,19 @@ final class UserLocationManager: NSObject{
         
         onComplete(locationServicesEneabled)
     }
+}
+
+extension UserLocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        delegate?.userLocationManager(manager, didUpdateLocations: locations)
+        guard let location = locations.first else { return }
+       
+        self.userLocation = location
+        
+        gmsCameraPosition = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 16.0)
+        
+        locationManager.stopUpdatingLocation()
+        delegate?.userLocationManager(manager, didUpdateLocation: location, camera: gmsCameraPosition)
     }
     
 }
-
-
-extension UserLocationManager: CLLocationManagerDelegate { }
