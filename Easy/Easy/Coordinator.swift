@@ -23,7 +23,8 @@ final class Coordinator{
     }
     
     func showInitialController(){
-        mapNavigationController = UINavigationController(rootViewController: UIViewController())
+        let mapController = MapController(nibName: "MapController", bundle: nil)
+        mapNavigationController = UINavigationController(rootViewController: mapController)
         window.rootViewController = mapNavigationController
     }
     
