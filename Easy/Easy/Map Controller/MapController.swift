@@ -9,13 +9,26 @@
 import UIKit
 import GoogleMaps
 
+protocol MapControllerDelegate: class{
+    func showDestinationSearchController(from: MapController)
+}
+
 class MapController: UIViewController {
 
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var sourceDestinationView: SourceDestinationView!
     
-        
+    weak var delegate: MapControllerDelegate?
     let viewModel = MapControllerViewModel()
+    
+    init(delegate: MapControllerDelegate? = nil){
+        self.delegate = delegate
+        super.init(nibName: "MapController", bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +67,8 @@ extension MapController: UserLocationManagerDelegate, GMSMapViewDelegate{
             // show taxis in mapView
         }
         
-        viewModel.reverseGeocoding(){ [weak self] (address) in
+        sourceDestinationView.showSourceLoader()
+        viewModel.reverseGeocoding(){ [weak self] (address) in            
             self?.sourceDestinationView.setSource(address: address)
         }
         

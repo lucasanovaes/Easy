@@ -8,17 +8,25 @@
 
 import UIKit
 
+protocol SourceDestinationViewDelegate: class{
+    func sourceDestinationView(_ view: SourceDestinationView, didSelectWith type: AddressSearchController.SearchType)
+}
+
 @IBDesignable
 final class SourceDestinationView: UIView {
 
     @IBOutlet private weak var sourceStreetName: UILabel!
     @IBOutlet private weak var sourceComplement: UILabel!
+    @IBOutlet private weak var sourcePlaceholderView: UIView!
     
     @IBOutlet private weak var destinationStreetName: UILabel!
     @IBOutlet private weak var destinationComplement: UILabel!
+    @IBOutlet private weak var destinationPlaceholderView: UIView!
     
     private var contentView : UIView!
-
+    
+    weak var delegate: SourceDestinationViewDelegate?
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
@@ -30,6 +38,41 @@ final class SourceDestinationView: UIView {
         xibSetup()
         setupView()
     }
+    
+    func setSource(address: Address){
+        sourceStreetName.text = address.street
+        sourceComplement.text = "\(address.city) | \(address.neighborhood)"
+        
+        sourcePlaceholderView.isHidden = true
+    }
+    
+    func setDestination(address: Address){
+        destinationStreetName.text = address.street
+        destinationComplement.text = "\(address.city) | \(address.neighborhood)"
+        
+        destinationPlaceholderView.isHidden = true
+    }
+    
+    func showSourceLoader(){
+        sourcePlaceholderView.isHidden = false
+    }
+    
+    func showDestinationLoader(){
+        destinationPlaceholderView.isHidden = false
+    }
+    
+    @IBAction private func SearchForDestination(_ sender: UIButton) {
+        delegate?.sourceDestinationView(self, didSelectWith: .destination)
+    }
+    
+    @IBAction func SearchForSource(_ sender: UIButton) {
+        delegate?.sourceDestinationView(self, didSelectWith: .source)
+    }
+    
+}
+
+//MARK: Setup methods
+extension SourceDestinationView{
     
     private func xibSetup() {
         contentView = loadViewFromNib()
@@ -46,16 +89,6 @@ final class SourceDestinationView: UIView {
         return view
     }
     
-    func setSource(address: Address){
-        sourceStreetName.text = address.street
-        sourceComplement.text = "\(address.city) | \(address.neighborhood)"
-    }
-    
-    func setDestination(address: Address){
-        destinationStreetName.text = address.street
-        destinationComplement.text = "\(address.city) | \(address.neighborhood)"
-    }
-    
     private func setupView(){
         setupLayer()
     }
@@ -69,6 +102,5 @@ final class SourceDestinationView: UIView {
         self.layer.rasterizationScale = UIScreen.main.scale
     }
     
-
 }
 
