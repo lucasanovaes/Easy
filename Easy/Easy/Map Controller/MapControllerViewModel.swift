@@ -18,7 +18,7 @@ final class MapControllerViewModel {
     }
     
     func reverseGeocoding(onComplete: @escaping (Address) -> Void){
-        guard let userLocation = userLocationManager.userLocation else { return }
+        guard let userLocation = userLocationManager.sourceLocation else { return }
         
         let geocoder = GMSGeocoder()
         geocoder.reverseGeocodeCoordinate(userLocation) { (response, error) in

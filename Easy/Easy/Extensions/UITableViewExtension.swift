@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import UIKit
+
+extension UITableView{
+    
+    func dynamicSize(){
+        self.estimatedRowHeight = 40
+        self.rowHeight = UITableViewAutomaticDimension
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
+    }
+    
+}
+

@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 
 protocol MapControllerDelegate: class{
-    func showDestinationSearchController(from: MapController)
+    func showAddressSearchController(from: MapController, with type: AddressSearchController.SearchType)
 }
 
 class MapController: UIViewController {
@@ -18,8 +18,9 @@ class MapController: UIViewController {
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var sourceDestinationView: SourceDestinationView!
     
-    weak var delegate: MapControllerDelegate?
     let viewModel = MapControllerViewModel()
+    
+    weak var delegate: MapControllerDelegate?
     
     init(delegate: MapControllerDelegate? = nil){
         self.delegate = delegate
@@ -37,6 +38,8 @@ class MapController: UIViewController {
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         
+        sourceDestinationView.delegate = self
+        
         viewModel.userLocationManager.delegate = self
         viewModel.userLocationManager.startUpdateLocations { (hasAuthorization) in
             if !hasAuthorization{
@@ -51,16 +54,15 @@ extension MapController: UserLocationManagerDelegate, GMSMapViewDelegate{
     
     func userLocationManager(_ manager: CLLocationManager, didUpdateLocation location: CLLocation, camera: GMSCameraPosition) {
         mapView.camera = camera
-        setDestination()
+        setSource()
     }
     
-    // Verificar para incluir uma classe que extensa GMSMapViewDelegate e fazer tudo lá. Criar um delegate igual o UserLocationManager e centralizar tudo nessas classes
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        viewModel.userLocationManager.userLocation = position.target
-        setDestination()
+        viewModel.userLocationManager.sourceLocation = position.target
+        setSource()
     }
     
-    private func setDestination(){
+    private func setSource(){
         mapView.clear()
         
         viewModel.fetchTaxis { (taxis) in
@@ -72,6 +74,14 @@ extension MapController: UserLocationManagerDelegate, GMSMapViewDelegate{
             self?.sourceDestinationView.setSource(address: address)
         }
         
+    }
+    
+}
+
+extension MapController: SourceDestinationViewDelegate{
+    
+    func sourceDestinationView(_ view: SourceDestinationView, didSelectWith type: AddressSearchController.SearchType) {
+        delegate?.showAddressSearchController(from: self, with: type)
     }
     
 }

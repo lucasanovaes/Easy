@@ -4,6 +4,8 @@ target 'Easy' do
   use_frameworks!
 
   pod 'GoogleMaps'
+  pod 'GooglePlaces'
+
 
   target 'EasyTests' do
     inherit! :search_paths

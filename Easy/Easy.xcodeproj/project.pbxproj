@@ -15,6 +15,11 @@
 		4C27D6CC2040403200863983 /* TaxiMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27D6CB2040403200863983 /* TaxiMarker.swift */; };
 		4C27D6CF20404F2500863983 /* SourceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27D6CE20404F2500863983 /* SourceDestinationView.swift */; };
 		4C27D6D120404F4A00863983 /* SourceDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C27D6D020404F4A00863983 /* SourceDestinationView.xib */; };
+		4C4B25C0204429F900082D0D /* AddressSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B25BF204429F900082D0D /* AddressSearchController.swift */; };
+		4C4B25C220442A0D00082D0D /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */; };
+		4CBF369420447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */; };
+		4CBF369520447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */; };
+		4CBF36972044839500CD2DB9 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */; };
 		59066A82E204D41928696A4B /* Pods_Easy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86FE2ADA7175569A9880340 /* Pods_Easy.framework */; };
 		DE2A432C203F983300949DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2A4329203F983300949DB0 /* Assets.xcassets */; };
 		DE2A432D203F983300949DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2A432A203F983300949DB0 /* LaunchScreen.storyboard */; };
@@ -49,6 +54,11 @@
 		4C27D6CB2040403200863983 /* TaxiMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiMarker.swift; sourceTree = "<group>"; };
 		4C27D6CE20404F2500863983 /* SourceDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDestinationView.swift; sourceTree = "<group>"; };
 		4C27D6D020404F4A00863983 /* SourceDestinationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceDestinationView.xib; sourceTree = "<group>"; };
+		4C4B25BF204429F900082D0D /* AddressSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchController.swift; sourceTree = "<group>"; };
+		4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
+		4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesPredictionTableViewCell.swift; sourceTree = "<group>"; };
+		4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressesPredictionTableViewCell.xib; sourceTree = "<group>"; };
+		4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		92B99FAFD21F5562973836B1 /* Pods-Easy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy/Pods-Easy.release.xcconfig"; sourceTree = "<group>"; };
 		B4FE9A78A53B907985B5F36B /* Pods-EasyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyTests/Pods-EasyTests.release.xcconfig"; sourceTree = "<group>"; };
 		D26F5241A2A7AD63B64E40EB /* Pods_EasyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +120,8 @@
 				4C27D6A6203F456F00863983 /* AppDelegate.swift */,
 				DE2A432E203F989900949DB0 /* Coordinator.swift */,
 				4C27D6C62040372E00863983 /* Network */,
-				DE2A4330203F9E3C00949DB0 /* Map */,
+				DE2A4330203F9E3C00949DB0 /* Map Controller */,
+				4C4B25BE204429DF00082D0D /* AddressSearchController */,
 				DE2A433720437DD400949DB0 /* Extensions */,
 				DE2A4328203F983300949DB0 /* Resources */,
 			);
@@ -134,13 +145,32 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		4C27D6CD20404EFC00863983 /* Address Component */ = {
+		4C27D6CD20404EFC00863983 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				4C27D6CE20404F2500863983 /* SourceDestinationView.swift */,
 				4C27D6D020404F4A00863983 /* SourceDestinationView.xib */,
 			);
-			path = "Address Component";
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4C4B25BE204429DF00082D0D /* AddressSearchController */ = {
+			isa = PBXGroup;
+			children = (
+				4CBF369120447EE300CD2DB9 /* Components */,
+				4C4B25BF204429F900082D0D /* AddressSearchController.swift */,
+				4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */,
+			);
+			path = AddressSearchController;
+			sourceTree = "<group>";
+		};
+		4CBF369120447EE300CD2DB9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */,
+				4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		75C685BE51FED2A4A302941D /* Frameworks */ = {
@@ -173,24 +203,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		DE2A4330203F9E3C00949DB0 /* Map */ = {
+		DE2A4330203F9E3C00949DB0 /* Map Controller */ = {
 			isa = PBXGroup;
 			children = (
 				DE2A433A2043952400949DB0 /* Models */,
-				4C27D6CD20404EFC00863983 /* Address Component */,
+				4C27D6CD20404EFC00863983 /* Components */,
 				DE2A4331203F9E5100949DB0 /* MapController.swift */,
 				DE2A4332203F9E5100949DB0 /* MapController.xib */,
 				4C27D6C920403F8F00863983 /* MapControllerViewModel.swift */,
 				4C27D6CB2040403200863983 /* TaxiMarker.swift */,
 				DE2A4335203FA04000949DB0 /* UserLocationManager.swift */,
 			);
-			path = Map;
+			path = "Map Controller";
 			sourceTree = "<group>";
 		};
 		DE2A433720437DD400949DB0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				DE2A433820437DDB00949DB0 /* UIAlertControllerExtension.swift */,
+				4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C27D6D120404F4A00863983 /* SourceDestinationView.xib in Resources */,
+				4CBF369520447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib in Resources */,
 				DE2A4334203F9E5100949DB0 /* MapController.xib in Resources */,
 				DE2A432C203F983300949DB0 /* Assets.xcassets in Resources */,
 				DE2A432D203F983300949DB0 /* LaunchScreen.storyboard in Resources */,
@@ -399,10 +431,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Easy/Pods-Easy-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -422,10 +455,14 @@
 				4C27D6CC2040403200863983 /* TaxiMarker.swift in Sources */,
 				DE2A433C2043953300949DB0 /* Address.swift in Sources */,
 				4C27D6CF20404F2500863983 /* SourceDestinationView.swift in Sources */,
+				4C4B25C220442A0D00082D0D /* AddressSearchViewModel.swift in Sources */,
+				4CBF369420447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift in Sources */,
 				4C27D6A7203F456F00863983 /* AppDelegate.swift in Sources */,
+				4C4B25C0204429F900082D0D /* AddressSearchController.swift in Sources */,
 				DE2A4336203FA04000949DB0 /* UserLocationManager.swift in Sources */,
 				DE2A433920437DDB00949DB0 /* UIAlertControllerExtension.swift in Sources */,
 				4C27D6CA20403F8F00863983 /* MapControllerViewModel.swift in Sources */,
+				4CBF36972044839500CD2DB9 /* UITableViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,9 +611,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3D28X37A5K;
 				INFOPLIST_FILE = "$(SRCROOT)/Easy/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.novaes.easy.Easy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novaes.easy.taxi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -591,9 +628,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3D28X37A5K;
 				INFOPLIST_FILE = "$(SRCROOT)/Easy/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.novaes.easy.Easy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novaes.easy.taxi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
