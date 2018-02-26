@@ -11,8 +11,11 @@ import UIKit
 @IBDesignable
 final class SourceDestinationView: UIView {
 
-    @IBOutlet private weak var sourceAddress: UITextField!
-    @IBOutlet private weak var destinationAddress: UITextField!
+    @IBOutlet private weak var sourceStreetName: UILabel!
+    @IBOutlet private weak var sourceComplement: UILabel!
+    
+    @IBOutlet private weak var destinationStreetName: UILabel!
+    @IBOutlet private weak var destinationComplement: UILabel!
     
     private var contentView : UIView!
 
@@ -44,11 +47,13 @@ final class SourceDestinationView: UIView {
     }
     
     func setSource(address: Address){
-        sourceAddress.text = address.street
+        sourceStreetName.text = address.street
+        sourceComplement.text = "\(address.city) | \(address.neighborhood)"
     }
     
-    func setDestination(address: String){
-        destinationAddress.text = address
+    func setDestination(address: Address){
+        destinationStreetName.text = address.street
+        destinationComplement.text = "\(address.city) | \(address.neighborhood)"
     }
     
     private func setupView(){

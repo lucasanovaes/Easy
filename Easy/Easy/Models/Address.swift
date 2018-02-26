@@ -16,7 +16,7 @@ final class Address{
     var neighborhood: String
     
     init(address: GMSAddress){
-        self.street = address.thoroughfare ?? ""
+        self.street = address.thoroughfare ?? "Unamed Road"
         self.city = address.locality ?? ""
         self.neighborhood = address.subLocality ?? ""
     }
