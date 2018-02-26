@@ -19,7 +19,7 @@ final class UserLocationManager: NSObject{
     private let locationManager: CLLocationManager = CLLocationManager()
     private var gmsCameraPosition: GMSCameraPosition = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), zoom: 0.0)
 
-    var userLocation: CLLocation?
+    var userLocation: CLLocationCoordinate2D?
     
     weak var delegate: UserLocationManagerDelegate?
     
@@ -48,7 +48,7 @@ extension UserLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
        
-        self.userLocation = location
+        userLocation = location.coordinate
         
         gmsCameraPosition = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 16.0)
         
