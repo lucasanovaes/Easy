@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import GoogleMaps
+
+final class Address{
+    
+    var street: String
+    var city: String
+    var neighborhood: String
+    
+    init(address: GMSAddress){
+        self.street = address.thoroughfare ?? ""
+        self.city = address.locality ?? ""
+        self.neighborhood = address.subLocality ?? ""
+    }
+}
+

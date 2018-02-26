@@ -17,18 +17,15 @@ final class MapControllerViewModel {
         
     }
     
-    func reverseGeocoding(for coordinate: CLLocationCoordinate2D, onComplete: @escaping (String) -> Void){
-        let geocoder = GMSGeocoder()
+    func reverseGeocoding(onComplete: @escaping (Address) -> Void){
+        guard let userLocation = userLocationManager.userLocation else { return }
         
-        geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(userLocation) { (response, error) in
             if error != nil { return }
             
             if let address = response?.firstResult(){
-                if let lines = address.lines{
-                    let readableAddress = lines.joined(separator: "\n")
-                    print("Current address: \(readableAddress)")
-                    onComplete(readableAddress)
-                }                
+                onComplete(Address(address: address))
             }
         }
     }
