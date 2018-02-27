@@ -11,7 +11,7 @@ import GoogleMaps
 import GooglePlaces
 
 protocol AddressSearchControllerDelegate: class{
-    func addressSearchController(_ controller: AddressSearchController, didSelect prediction: GMSAutocompletePrediction)
+    func addressSearchController(_ controller: AddressSearchController, didSelect place: GMSPlace)
 }
 
 final class AddressSearchController: UIViewController {
@@ -34,12 +34,13 @@ final class AddressSearchController: UIViewController {
         case destination = "Destination"
     }
     
-    init(type: SearchType){
+    init(type: SearchType, delegate: AddressSearchControllerDelegate? = nil){
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         viewModel = AddressSearchViewModel()
         searchController = UISearchController(searchResultsController: nil)
 
         self.type = type
+        self.delegate = delegate
 
         super.init(nibName: nil, bundle: nil)        
     }
@@ -102,7 +103,14 @@ extension AddressSearchController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.addressSearchController(self, didSelect: viewModel.prediction(at: indexPath))
+        
+        UILoader.shared.showLoader(in: view)
+        viewModel.findAddress(viewModel.prediction(at: indexPath).placeID) {(place, error) in
+            UILoader.shared.hideLoader()
+            
+            self.delegate?.addressSearchController(self, didSelect: place!)
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

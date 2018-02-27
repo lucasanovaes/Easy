@@ -29,6 +29,9 @@
 		DE2A4336203FA04000949DB0 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2A4335203FA04000949DB0 /* UserLocationManager.swift */; };
 		DE2A433920437DDB00949DB0 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2A433820437DDB00949DB0 /* UIAlertControllerExtension.swift */; };
 		DE2A433C2043953300949DB0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2A433B2043953300949DB0 /* Address.swift */; };
+		DE3C81512044E0D600430EA0 /* UILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3C81502044E0D600430EA0 /* UILoader.swift */; };
+		DE3C81552044E54D00430EA0 /* TaxiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3C81542044E54D00430EA0 /* TaxiServices.swift */; };
+		DE3C81572044E5D400430EA0 /* Taxi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3C81562044E5D400430EA0 /* Taxi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		DE2A4335203FA04000949DB0 /* UserLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
 		DE2A433820437DDB00949DB0 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		DE2A433B2043953300949DB0 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		DE3C81502044E0D600430EA0 /* UILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoader.swift; sourceTree = "<group>"; };
+		DE3C81542044E54D00430EA0 /* TaxiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiServices.swift; sourceTree = "<group>"; };
+		DE3C81562044E5D400430EA0 /* Taxi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taxi.swift; sourceTree = "<group>"; };
 		E86FE2ADA7175569A9880340 /* Pods_Easy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -124,6 +130,7 @@
 				4C4B25BE204429DF00082D0D /* AddressSearchController */,
 				DE2A433720437DD400949DB0 /* Extensions */,
 				DE2A4328203F983300949DB0 /* Resources */,
+				DE3C81502044E0D600430EA0 /* UILoader.swift */,
 			);
 			path = Easy;
 			sourceTree = "<group>";
@@ -141,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				4C27D6C72040373600863983 /* EasyAPI.swift */,
+				DE3C81542044E54D00430EA0 /* TaxiServices.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				DE2A433B2043953300949DB0 /* Address.swift */,
+				DE3C81562044E5D400430EA0 /* Taxi.swift */,
 			);
 			name = Models;
 			path = Easy/Models;
@@ -435,7 +444,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -450,11 +460,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE2A432F203F989900949DB0 /* Coordinator.swift in Sources */,
+				DE3C81572044E5D400430EA0 /* Taxi.swift in Sources */,
 				4C27D6C82040373600863983 /* EasyAPI.swift in Sources */,
 				DE2A4333203F9E5100949DB0 /* MapController.swift in Sources */,
 				4C27D6CC2040403200863983 /* TaxiMarker.swift in Sources */,
 				DE2A433C2043953300949DB0 /* Address.swift in Sources */,
 				4C27D6CF20404F2500863983 /* SourceDestinationView.swift in Sources */,
+				DE3C81512044E0D600430EA0 /* UILoader.swift in Sources */,
+				DE3C81552044E54D00430EA0 /* TaxiServices.swift in Sources */,
 				4C4B25C220442A0D00082D0D /* AddressSearchViewModel.swift in Sources */,
 				4CBF369420447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift in Sources */,
 				4C27D6A7203F456F00863983 /* AppDelegate.swift in Sources */,

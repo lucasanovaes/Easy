@@ -17,9 +17,9 @@ protocol UserLocationManagerDelegate: class{
 final class UserLocationManager: NSObject{
     
     private let locationManager: CLLocationManager = CLLocationManager()
-    private var gmsCameraPosition: GMSCameraPosition = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), zoom: 0.0)
 
     var sourceLocation: CLLocationCoordinate2D?
+    var destinationLocation: CLLocationCoordinate2D?
     
     weak var delegate: UserLocationManagerDelegate?
     
@@ -50,7 +50,7 @@ extension UserLocationManager: CLLocationManagerDelegate {
        
         sourceLocation = location.coordinate
         
-        gmsCameraPosition = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 16.0)
+        let gmsCameraPosition = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 16.0)
         
         locationManager.stopUpdatingLocation()
         delegate?.userLocationManager(manager, didUpdateLocation: location, camera: gmsCameraPosition)

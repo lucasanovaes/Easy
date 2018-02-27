@@ -23,6 +23,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SourceDestinationView" customModule="Easy" customModuleProvider="target">
             <connections>
+                <outlet property="destinationButton" destination="zmo-Jz-cYF" id="Ddq-Xw-mGd"/>
                 <outlet property="destinationComplement" destination="JKC-nd-TPA" id="cgN-Fm-c9m"/>
                 <outlet property="destinationPlaceholderView" destination="mdt-FE-YSn" id="9yK-Kz-y5l"/>
                 <outlet property="destinationStreetName" destination="eXT-bt-qD7" id="XQi-Bf-9b7"/>
@@ -136,37 +137,33 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdt-FE-YSn">
                             <rect key="frame" x="0.0" y="0.0" width="282" height="28"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmo-Jz-cYF">
-                                    <rect key="frame" x="8" y="0.0" width="266" height="28"/>
-                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
-                                    <state key="normal" title="Add new destination address">
-                                        <color key="titleColor" red="0.4039215686" green="0.69411764710000001" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="SearchForDestination:" destination="-1" eventType="touchUpInside" id="vWL-hF-qbL"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="zmo-Jz-cYF" firstAttribute="top" secondItem="mdt-FE-YSn" secondAttribute="top" id="H8n-5g-r7h"/>
-                                <constraint firstItem="zmo-Jz-cYF" firstAttribute="leading" secondItem="mdt-FE-YSn" secondAttribute="leading" constant="8" id="Mw6-xf-cBz"/>
-                                <constraint firstAttribute="trailing" secondItem="zmo-Jz-cYF" secondAttribute="trailing" constant="8" id="ofb-wX-gus"/>
-                                <constraint firstAttribute="bottom" secondItem="zmo-Jz-cYF" secondAttribute="bottom" id="y3k-p3-WrA"/>
-                            </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmo-Jz-cYF">
+                            <rect key="frame" x="8" y="0.0" width="266" height="28"/>
+                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
+                            <state key="normal" title="Add new destination address">
+                                <color key="titleColor" red="0.4039215686" green="0.69411764710000001" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="SearchForDestination:" destination="-1" eventType="touchUpInside" id="vWL-hF-qbL"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="mdt-FE-YSn" secondAttribute="trailing" id="2yQ-iz-9gK"/>
                         <constraint firstItem="mdt-FE-YSn" firstAttribute="leading" secondItem="wZ1-qv-Jwx" secondAttribute="leading" id="6q4-bb-zPz"/>
+                        <constraint firstAttribute="trailing" secondItem="zmo-Jz-cYF" secondAttribute="trailing" constant="8" id="Awh-c7-C5x"/>
                         <constraint firstItem="JKC-nd-TPA" firstAttribute="leading" secondItem="wZ1-qv-Jwx" secondAttribute="leading" constant="10" id="CDG-oF-GDU"/>
                         <constraint firstAttribute="trailing" secondItem="JKC-nd-TPA" secondAttribute="trailing" constant="8" id="Drg-Qu-MmY"/>
                         <constraint firstAttribute="height" constant="28" id="Kly-5t-mhu"/>
+                        <constraint firstItem="zmo-Jz-cYF" firstAttribute="top" secondItem="wZ1-qv-Jwx" secondAttribute="top" id="Nti-1F-7gd"/>
                         <constraint firstItem="mdt-FE-YSn" firstAttribute="top" secondItem="wZ1-qv-Jwx" secondAttribute="top" id="Q97-CK-zZw"/>
                         <constraint firstAttribute="bottom" secondItem="mdt-FE-YSn" secondAttribute="bottom" id="Sob-sM-p7w"/>
                         <constraint firstItem="eXT-bt-qD7" firstAttribute="leading" secondItem="wZ1-qv-Jwx" secondAttribute="leading" constant="8" id="UYF-pr-6qx"/>
+                        <constraint firstItem="zmo-Jz-cYF" firstAttribute="leading" secondItem="wZ1-qv-Jwx" secondAttribute="leading" constant="8" id="dEa-Go-5jV"/>
+                        <constraint firstAttribute="bottom" secondItem="zmo-Jz-cYF" secondAttribute="bottom" id="fDd-kT-iJb"/>
                         <constraint firstItem="eXT-bt-qD7" firstAttribute="top" secondItem="wZ1-qv-Jwx" secondAttribute="top" constant="1" id="llk-xm-hh2"/>
                         <constraint firstAttribute="trailing" secondItem="eXT-bt-qD7" secondAttribute="trailing" constant="8" id="uzc-yD-hBk"/>
                         <constraint firstAttribute="bottom" secondItem="JKC-nd-TPA" secondAttribute="bottom" constant="1" id="zDH-IQ-3y1"/>

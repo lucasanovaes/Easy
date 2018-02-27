@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 protocol MapControllerDelegate: class{
     func showAddressSearchController(from: MapController, with type: AddressSearchController.SearchType)
@@ -47,42 +48,75 @@ class MapController: UIViewController {
             }
         }
     }
+    
+    private func fetchTaxis(){
+        viewModel.fetchTaxisMarker { (taxis, error) in
+            if error != nil{
+                // Handle error. Show some pop-up etc..
+                return
+            }
+            
+            taxis.forEach({ (taxiMarker) in
+                DispatchQueue.main.async {
+                    taxiMarker.map = self.mapView
+                }
+            })
+        }
+    }
+    
+    // Set new address source. Responsable for call reverseGeocoding and get all near taxis.
+    private func setSource(){
+        mapView.clear()
+        fetchTaxis()
+        
+        sourceDestinationView.showSourceLoader()
+        viewModel.reverseGeocodingFromSource(){ [weak self] (address) in
+            self?.sourceDestinationView.setSource(address: address)
+        }
+    }
+    
+    private func setDestination(){
+        sourceDestinationView.showDestinationLoader()
+        viewModel.reverseGeocodingFromDestination(){ [weak self] (address) in
+            self?.sourceDestinationView.setDestination(address: address)
+        }
+    }
 
 }
 
+// MARK: Methods releated to GMSMapView location
 extension MapController: UserLocationManagerDelegate, GMSMapViewDelegate{
     
+    // Called just one time, when got user location. Move camera to current position and set the source address.
     func userLocationManager(_ manager: CLLocationManager, didUpdateLocation location: CLLocation, camera: GMSCameraPosition) {
         mapView.camera = camera
         setSource()
     }
     
+    // Called every time the user drags the map. Set new source location in viewModel 'sourceLocation'.
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         viewModel.userLocationManager.sourceLocation = position.target
         setSource()
     }
+}
+
+// MARK: User selected some destination address
+extension MapController: AddressSearchControllerDelegate{
     
-    private func setSource(){
-        mapView.clear()
-        
-        viewModel.fetchTaxis { (taxis) in
-            // show taxis in mapView
-        }
-        
-        sourceDestinationView.showSourceLoader()
-        viewModel.reverseGeocoding(){ [weak self] (address) in            
-            self?.sourceDestinationView.setSource(address: address)
-        }
-        
+    // Recieve new GMSPlace and update sourceDestion in userLocationManage 'destinationLocation'.
+    func addressSearchController(_ controller: AddressSearchController, didSelect place: GMSPlace) {
+        viewModel.userLocationManager.destinationLocation = place.coordinate
+        setDestination()
     }
     
 }
 
+// MARK: Router Navigation
 extension MapController: SourceDestinationViewDelegate{
     
     func sourceDestinationView(_ view: SourceDestinationView, didSelectWith type: AddressSearchController.SearchType) {
         delegate?.showAddressSearchController(from: self, with: type)
     }
-    
+
 }
 

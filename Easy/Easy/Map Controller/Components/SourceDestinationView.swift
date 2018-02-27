@@ -22,6 +22,7 @@ final class SourceDestinationView: UIView {
     @IBOutlet private weak var destinationStreetName: UILabel!
     @IBOutlet private weak var destinationComplement: UILabel!
     @IBOutlet private weak var destinationPlaceholderView: UIView!
+    @IBOutlet private weak var destinationButton: UIButton!
     
     private var contentView : UIView!
     
@@ -50,6 +51,7 @@ final class SourceDestinationView: UIView {
         destinationStreetName.text = address.street
         destinationComplement.text = "\(address.city) | \(address.neighborhood)"
         
+        destinationButton.setTitle("", for: .normal)
         destinationPlaceholderView.isHidden = true
     }
     
@@ -58,6 +60,7 @@ final class SourceDestinationView: UIView {
     }
     
     func showDestinationLoader(){
+        destinationButton.setTitle("Add new destination address", for: .normal)
         destinationPlaceholderView.isHidden = false
     }
     
@@ -66,7 +69,7 @@ final class SourceDestinationView: UIView {
     }
     
     @IBAction func SearchForSource(_ sender: UIButton) {
-        delegate?.sourceDestinationView(self, didSelectWith: .source)
+//        delegate?.sourceDestinationView(self, didSelectWith: .source)
     }
     
 }

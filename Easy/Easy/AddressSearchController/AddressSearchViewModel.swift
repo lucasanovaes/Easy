@@ -60,5 +60,24 @@ final class AddressSearchViewModel{
         }
     }
     
+    func findAddress(_ placeId: String?, onComplete: @escaping (GMSPlace?, Error?) -> Void){
+        guard let placeId = placeId else { return }
+        
+        gmsPlacesClient.lookUpPlaceID(placeId) { (place, error) in
+            if let error = error {
+                onComplete(nil, error)
+                return
+            }
+            
+            guard let place = place else {
+                print("Any place details for \(placeId) :")
+                onComplete(nil, nil)
+                return
+            }
+            
+            onComplete(place, nil)
+        }
+    }
+    
 }
 

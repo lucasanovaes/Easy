@@ -11,9 +11,10 @@ import GoogleMaps
 
 final class TaxiMarker: GMSMarker{
     
-    init(coordinate: CLLocationCoordinate2D){
+    init(taxi: Taxi){
         super.init()
-        position = coordinate
+
+        position = CLLocationCoordinate2D(latitude: taxi.lat, longitude: taxi.lng)
         icon = #imageLiteral(resourceName: "icon_marker_taxi")
         groundAnchor = CGPoint(x: 0.5, y: 1)
         appearAnimation = .pop

@@ -33,7 +33,7 @@ final class Coordinator{
 extension Coordinator: MapControllerDelegate{
     
     func showAddressSearchController(from: MapController, with type: AddressSearchController.SearchType) {
-        let addressSearchController = UINavigationController(rootViewController: AddressSearchController(type: type))
+        let addressSearchController = UINavigationController(rootViewController: AddressSearchController(type: type, delegate: from))
         mapNavigationController?.present(addressSearchController, animated: true, completion: nil)
     }
     
