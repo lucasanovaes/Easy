@@ -42,17 +42,27 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="WvZ-Ft-Qol"/>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFe-iF-Uaa" customClass="NearestTaxiView" customModule="Easy" customModuleProvider="target">
+                    <rect key="frame" x="16" y="482" width="140" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="AdL-Y4-RwI"/>
+                        <constraint firstAttribute="width" constant="140" id="dk0-Od-Fbb"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="u4o-Sm-7EP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="83P-ej-zsc"/>
                 <constraint firstItem="JmY-NS-NG8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9b1-e1-X06"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mFe-iF-Uaa" secondAttribute="bottom" constant="16" id="9l4-d0-4R4"/>
                 <constraint firstItem="DIz-yK-WyR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="74" id="KOb-0q-U5A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="u4o-Sm-7EP" secondAttribute="bottom" id="La7-fb-HKK"/>
                 <constraint firstItem="DIz-yK-WyR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ocd-OM-byd"/>
                 <constraint firstItem="u4o-Sm-7EP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RZb-zz-4eh"/>
                 <constraint firstItem="JmY-NS-NG8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iRo-LJ-qgs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DIz-yK-WyR" secondAttribute="trailing" constant="20" id="pfa-ej-KLg"/>
+                <constraint firstItem="mFe-iF-Uaa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="vcg-vG-AnY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u4o-Sm-7EP" secondAttribute="trailing" id="xZx-fo-b7G"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>

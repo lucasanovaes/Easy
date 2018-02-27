@@ -82,6 +82,7 @@ class MapController: UIViewController {
         }
     }
     
+    // Set new address destination
     private func setDestination(){
         sourceDestinationView.showDestinationLoader()
         viewModel.reverseGeocodingFromDestination(){ [weak self] (address) in

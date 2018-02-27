@@ -54,6 +54,6 @@ class EasyTests: XCTestCase {
     }
     
     
-    
-    
+
 }
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TrebuchetMS.ttf">
+            <string>TrebuchetMS</string>
+        </array>
+        <array key="TrebuchetMSBold.ttf">
+            <string>TrebuchetMS-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NearestTaxiView" customModule="Easy" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="8xm-sb-QDw" id="YKS-Wv-g83"/>
+                <outlet property="distanceLabel" destination="CB9-J0-IMn" id="k5w-ND-Ts9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearest taxi:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1K-dQ-0D4">
+                    <rect key="frame" x="8" y="8" width="79" height="16"/>
+                    <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="13"/>
+                    <color key="textColor" white="0.0" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_marker_taxi" translatesAutoresizingMaskIntoConstraints="NO" id="87w-LC-hsr">
+                    <rect key="frame" x="18" y="26" width="32" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="TFQ-2n-3Zl"/>
+                        <constraint firstAttribute="height" constant="29" id="iD6-d4-Sg0"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-J0-IMn">
+                    <rect key="frame" x="16" y="51" width="116" height="14"/>
+                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
+                    <color key="textColor" white="0.0" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" alpha="0.54000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="KEi-VS-dkl">
+                    <rect key="frame" x="65" y="30" width="20" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="Hh0-OP-d5m"/>
+                        <constraint firstAttribute="height" constant="23" id="T8Y-jt-mTb"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_marker_user_location" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-1K-cfN">
+                    <rect key="frame" x="99" y="25" width="26" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="26" id="McX-K4-mER"/>
+                        <constraint firstAttribute="height" constant="27" id="c1Y-4t-gyf"/>
+                    </constraints>
+                </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-sb-QDw">
+                    <rect key="frame" x="65" y="50" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="87w-LC-hsr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="0Wu-Xz-C2R"/>
+                <constraint firstItem="8xm-sb-QDw" firstAttribute="centerX" secondItem="KEi-VS-dkl" secondAttribute="centerX" id="4TL-wy-E3y"/>
+                <constraint firstItem="KEi-VS-dkl" firstAttribute="leading" secondItem="87w-LC-hsr" secondAttribute="trailing" constant="14.5" id="4zg-7k-g42"/>
+                <constraint firstItem="N1K-dQ-0D4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="6D2-FL-PAA"/>
+                <constraint firstItem="8xm-sb-QDw" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="7Jc-Wn-CYH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CB9-J0-IMn" secondAttribute="trailing" constant="8" id="BHv-MY-N2L"/>
+                <constraint firstItem="8xm-sb-QDw" firstAttribute="top" secondItem="KEi-VS-dkl" secondAttribute="bottom" constant="-3" id="BXL-h4-Gc0"/>
+                <constraint firstItem="KEi-VS-dkl" firstAttribute="top" secondItem="N1K-dQ-0D4" secondAttribute="bottom" constant="6" id="D7y-Dx-K4z"/>
+                <constraint firstItem="JNr-1K-cfN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="HWB-ie-nxx"/>
+                <constraint firstItem="CB9-J0-IMn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="NVv-3j-cD8"/>
+                <constraint firstItem="JNr-1K-cfN" firstAttribute="leading" secondItem="KEi-VS-dkl" secondAttribute="trailing" constant="14.5" id="TEQ-3s-CcO"/>
+                <constraint firstItem="87w-LC-hsr" firstAttribute="top" secondItem="N1K-dQ-0D4" secondAttribute="bottom" constant="2" id="XLd-ei-2kQ"/>
+                <constraint firstItem="N1K-dQ-0D4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="dZb-Ld-l0b"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="CB9-J0-IMn" secondAttribute="bottom" constant="5" id="rAu-6L-QGK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JNr-1K-cfN" secondAttribute="trailing" constant="15" id="zDy-oz-L94"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-113" y="162"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_arrow_right" width="395" height="395"/>
+        <image name="icon_marker_taxi" width="32" height="32"/>
+        <image name="icon_marker_user_location" width="32" height="32"/>
+    </resources>
+</document>

@@ -18,6 +18,8 @@
 		4C4B25C0204429F900082D0D /* AddressSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B25BF204429F900082D0D /* AddressSearchController.swift */; };
 		4C4B25C220442A0D00082D0D /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */; };
 		4C7FC9E52045B47B00AAA2EF /* Taxis.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C7FC9E42045B47B00AAA2EF /* Taxis.json */; };
+		4CA6867C2045C7870015938D /* NearestTaxiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6867B2045C7870015938D /* NearestTaxiView.swift */; };
+		4CA6867E2045C8000015938D /* NearestTaxiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA6867D2045C8000015938D /* NearestTaxiView.xib */; };
 		4CBF369420447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */; };
 		4CBF369520447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */; };
 		4CBF36972044839500CD2DB9 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */; };
@@ -61,6 +63,8 @@
 		4C4B25BF204429F900082D0D /* AddressSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchController.swift; sourceTree = "<group>"; };
 		4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 		4C7FC9E42045B47B00AAA2EF /* Taxis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taxis.json; sourceTree = "<group>"; };
+		4CA6867B2045C7870015938D /* NearestTaxiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestTaxiView.swift; sourceTree = "<group>"; };
+		4CA6867D2045C8000015938D /* NearestTaxiView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearestTaxiView.xib; sourceTree = "<group>"; };
 		4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesPredictionTableViewCell.swift; sourceTree = "<group>"; };
 		4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressesPredictionTableViewCell.xib; sourceTree = "<group>"; };
 		4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 			children = (
 				4C27D6CE20404F2500863983 /* SourceDestinationView.swift */,
 				4C27D6D020404F4A00863983 /* SourceDestinationView.xib */,
+				4CA6867B2045C7870015938D /* NearestTaxiView.swift */,
+				4CA6867D2045C8000015938D /* NearestTaxiView.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				4C27D6D120404F4A00863983 /* SourceDestinationView.xib in Resources */,
 				4CBF369520447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib in Resources */,
 				DE2A4334203F9E5100949DB0 /* MapController.xib in Resources */,
+				4CA6867E2045C8000015938D /* NearestTaxiView.xib in Resources */,
 				DE2A432C203F983300949DB0 /* Assets.xcassets in Resources */,
 				DE2A432D203F983300949DB0 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -481,6 +488,7 @@
 				DE3C81552044E54D00430EA0 /* TaxiServices.swift in Sources */,
 				4C4B25C220442A0D00082D0D /* AddressSearchViewModel.swift in Sources */,
 				4CBF369420447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift in Sources */,
+				4CA6867C2045C7870015938D /* NearestTaxiView.swift in Sources */,
 				4C27D6A7203F456F00863983 /* AppDelegate.swift in Sources */,
 				4C4B25C0204429F900082D0D /* AddressSearchController.swift in Sources */,
 				DE2A4336203FA04000949DB0 /* UserLocationManager.swift in Sources */,
