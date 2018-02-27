@@ -16,6 +16,7 @@ protocol MapControllerDelegate: class{
 
 class MapController: UIViewController {
 
+    @IBOutlet weak var searchComponentTopSpace: NSLayoutConstraint!
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var sourceDestinationView: SourceDestinationView!
     
@@ -34,6 +35,12 @@ class MapController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        title = "Easy app"
+        
+        if #available(iOS 11.0, *) {
+            searchComponentTopSpace.constant = 12
+        }
         
         mapView.delegate = self
         mapView.isMyLocationEnabled = true
@@ -97,6 +104,12 @@ extension MapController: UserLocationManagerDelegate, GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         viewModel.userLocationManager.sourceLocation = position.target
         setSource()
+    }
+    
+    // Prevent camera from moving when tapping marker
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        mapView.selectedMarker = marker
+        return true
     }
 }
 

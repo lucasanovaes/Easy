@@ -16,10 +16,12 @@ final class MapControllerViewModel {
     func fetchTaxisMarker(onComplete: @escaping ([TaxiMarker], Error?) -> Void){
         guard let sourceLocation = userLocationManager.sourceLocation else { return }
         TaxiServices().fetchTaxis(at: sourceLocation) { (taxis, error) in
+            
             DispatchQueue.main.async {
                 let taxisMarker = taxis.map({ TaxiMarker(taxi: $0) })
                 onComplete(taxisMarker, error)
             }
+            
         }
     }
     

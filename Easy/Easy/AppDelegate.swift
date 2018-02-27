@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyBj7gKmjNNG2aOlys-z9nNhqIWBZjdLdCc")
         GMSPlacesClient.provideAPIKey("AIzaSyBj7gKmjNNG2aOlys-z9nNhqIWBZjdLdCc")
         
+        UINavigationBar.appearance().barTintColor = UIColor(red: 240.0/255.0, green: 230.0/255.0, blue: 59.0/255.0, alpha: 1.0)
+
         return true
     }
     

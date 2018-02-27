@@ -62,7 +62,10 @@ final class AddressSearchController: UIViewController {
         searchController.searchResultsUpdater = self
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
+        }else{
+            tableView.tableHeaderView = searchController.searchBar
         }
+        
         definesPresentationContext = true
         
         tableView.showsVerticalScrollIndicator = false
@@ -75,6 +78,10 @@ final class AddressSearchController: UIViewController {
     // Make UISearchController active without have to scroll down
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let backButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(done))
+        self.navigationItem.rightBarButtonItem = backButton
+        
         if #available(iOS 11.0, *) {
             navigationItem.hidesSearchBarWhenScrolling = false
         }
@@ -87,6 +94,10 @@ final class AddressSearchController: UIViewController {
         }
     }
     
+    @objc private func done() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension AddressSearchController: UITableViewDelegate, UITableViewDataSource{
@@ -96,9 +107,30 @@ extension AddressSearchController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewIdentifier.predictionsCellIdentifier) as! AdressesPredictionTableViewCell
-        cell.fill(with: viewModel.predictionText(at: indexPath))
-        return cell
+        switch viewModel.searchState{
+
+        // Want to customize the states? Simply change default UITableViewCell(:) for the custom class you want...
+        case .status_null:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "status_null")
+            cell.textLabel?.text = "Type and search for a new place"
+            return cell
+            
+        case .success:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewIdentifier.predictionsCellIdentifier) as! AdressesPredictionTableViewCell
+            cell.fill(with: viewModel.predictionText(at: indexPath))
+            return cell
+            
+        case .empty:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "empty")
+            cell.textLabel?.text = "Wow! No results"
+            return cell
+            
+        case .error:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "error")
+            cell.textLabel?.text = "Ops...API Error"
+            return cell
+        }
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -118,7 +150,7 @@ extension AddressSearchController: UITableViewDelegate, UITableViewDataSource{
 extension AddressSearchController: UISearchResultsUpdating{
     
     func updateSearchResults(for searchController: UISearchController) {
-        viewModel.findAddres(with: searchController.searchBar.text) { (placesPrediction, error) in
+        viewModel.findAddres(with: searchController.searchBar.text) { (placesPrediction) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

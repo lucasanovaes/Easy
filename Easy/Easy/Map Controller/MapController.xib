@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapController" customModule="Easy" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="u4o-Sm-7EP" id="J2l-ls-Ech"/>
+                <outlet property="searchComponentTopSpace" destination="KOb-0q-U5A" id="dZ0-3Z-Xth"/>
                 <outlet property="sourceDestinationView" destination="DIz-yK-WyR" id="9e6-yD-KBk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,18 +35,19 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIz-yK-WyR" customClass="SourceDestinationView" customModule="Easy" customModuleProvider="target">
-                    <rect key="frame" x="20" y="38" width="280" height="74"/>
+                    <rect key="frame" x="20" y="94" width="280" height="74"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="74" id="KCE-WB-LhK"/>
                     </constraints>
+                    <viewLayoutGuide key="safeArea" id="WvZ-Ft-Qol"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="u4o-Sm-7EP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="83P-ej-zsc"/>
                 <constraint firstItem="JmY-NS-NG8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9b1-e1-X06"/>
-                <constraint firstItem="DIz-yK-WyR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="18" id="KOb-0q-U5A"/>
+                <constraint firstItem="DIz-yK-WyR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="74" id="KOb-0q-U5A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="u4o-Sm-7EP" secondAttribute="bottom" id="La7-fb-HKK"/>
                 <constraint firstItem="DIz-yK-WyR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ocd-OM-byd"/>
                 <constraint firstItem="u4o-Sm-7EP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RZb-zz-4eh"/>
@@ -54,10 +56,12 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u4o-Sm-7EP" secondAttribute="trailing" id="xZx-fo-b7G"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
     <resources>
-        <image name="icon_marker_user_location" width="400" height="400"/>
+        <image name="icon_marker_user_location" width="32" height="32"/>
     </resources>
 </document>

@@ -50,7 +50,7 @@ extension UserLocationManager: CLLocationManagerDelegate {
        
         sourceLocation = location.coordinate
         
-        let gmsCameraPosition = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 16.0)
+        let gmsCameraPosition = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 18.0)
         
         locationManager.stopUpdatingLocation()
         delegate?.userLocationManager(manager, didUpdateLocation: location, camera: gmsCameraPosition)

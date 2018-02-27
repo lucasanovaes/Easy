@@ -13,8 +13,9 @@ final class TaxiMarker: GMSMarker{
     
     init(taxi: Taxi){
         super.init()
-
         position = CLLocationCoordinate2D(latitude: taxi.lat, longitude: taxi.lng)
+        title = taxi.driver_name
+        snippet = taxi.driver_car
         icon = #imageLiteral(resourceName: "icon_marker_taxi")
         groundAnchor = CGPoint(x: 0.5, y: 1)
         appearAnimation = .pop

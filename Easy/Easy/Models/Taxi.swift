@@ -23,7 +23,6 @@ struct Taxi{
         self.driver_car = json["driver-car"] as? String ?? ""
     }
 
-
     static func taxisList(json: [String : AnyObject]?) -> [Taxi]{
         guard let json = json else { return [] }
         

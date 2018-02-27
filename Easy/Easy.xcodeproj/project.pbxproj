@@ -17,6 +17,7 @@
 		4C27D6D120404F4A00863983 /* SourceDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C27D6D020404F4A00863983 /* SourceDestinationView.xib */; };
 		4C4B25C0204429F900082D0D /* AddressSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B25BF204429F900082D0D /* AddressSearchController.swift */; };
 		4C4B25C220442A0D00082D0D /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */; };
+		4C7FC9E52045B47B00AAA2EF /* Taxis.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C7FC9E42045B47B00AAA2EF /* Taxis.json */; };
 		4CBF369420447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */; };
 		4CBF369520447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */; };
 		4CBF36972044839500CD2DB9 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */; };
@@ -59,6 +60,7 @@
 		4C27D6D020404F4A00863983 /* SourceDestinationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceDestinationView.xib; sourceTree = "<group>"; };
 		4C4B25BF204429F900082D0D /* AddressSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchController.swift; sourceTree = "<group>"; };
 		4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
+		4C7FC9E42045B47B00AAA2EF /* Taxis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taxis.json; sourceTree = "<group>"; };
 		4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesPredictionTableViewCell.swift; sourceTree = "<group>"; };
 		4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressesPredictionTableViewCell.xib; sourceTree = "<group>"; };
 		4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		4C27D6BA203F456F00863983 /* EasyTests */ = {
 			isa = PBXGroup;
 			children = (
+				4C7FC9E32045A47200AAA2EF /* Data */,
 				4C27D6BB203F456F00863983 /* EasyTests.swift */,
 				4C27D6BD203F456F00863983 /* Info.plist */,
 			);
@@ -170,6 +173,14 @@
 				4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */,
 			);
 			path = AddressSearchController;
+			sourceTree = "<group>";
+		};
+		4C7FC9E32045A47200AAA2EF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4C7FC9E42045B47B00AAA2EF /* Taxis.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		4CBF369120447EE300CD2DB9 /* Components */ = {
@@ -345,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7FC9E52045B47B00AAA2EF /* Taxis.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,8 +456,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -622,7 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3D28X37A5K;
+				DEVELOPMENT_TEAM = B8W8EMAKZD;
 				INFOPLIST_FILE = "$(SRCROOT)/Easy/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -639,7 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3D28X37A5K;
+				DEVELOPMENT_TEAM = B8W8EMAKZD;
 				INFOPLIST_FILE = "$(SRCROOT)/Easy/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

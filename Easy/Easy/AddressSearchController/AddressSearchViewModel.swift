@@ -12,6 +12,15 @@ import GooglePlaces
 
 final class AddressSearchViewModel{
     
+    enum SearchState{
+        case status_null
+        case success
+        case empty
+        case error
+    }
+    
+    var searchState: SearchState = .status_null
+    
     private let gmsPlacesClient = GMSPlacesClient()
     var predictions: [GMSAutocompletePrediction] = []
     
@@ -24,7 +33,12 @@ final class AddressSearchViewModel{
     }
     
     func numberOfPredictions(at section: Int) -> Int{
-        return predictions.count
+        switch searchState{
+        case .status_null, .empty, .error:
+            return 1
+        case .success:
+            return predictions.count
+        }
     }
     
     func predictionText(at indexPath: IndexPath) -> NSAttributedString{
@@ -35,27 +49,28 @@ final class AddressSearchViewModel{
         return predictions[indexPath.row]
     }
     
-    func findAddres(with text: String?, onComplete: @escaping ([GMSAutocompletePrediction], Error?) -> Void){
-        guard let text = text else {
-            
-            // set status null of search! User did no typed anything
-            
+    func findAddres(with text: String?, onComplete: @escaping ([GMSAutocompletePrediction]) -> Void){
+        if text == nil || text == ""{
+            searchState = .status_null
+            onComplete([])
             return
         }
         
         let filter = GMSAutocompleteFilter()
         filter.type = .address
         
-        gmsPlacesClient.autocompleteQuery(text, bounds: nil, filter: filter) { [weak self] (predictions, error) in
+        gmsPlacesClient.autocompleteQuery(text!, bounds: nil, filter: filter) { [weak self] (predictions, error) in
             if let error = error{
+                self?.searchState = .error
                 print("Error in autocomplete: \(error)")
-                onComplete([], error)
+                onComplete([])
                 return
             }
-        
+            
             if let predictions = predictions {
+                self?.searchState = predictions.count > 0 ? .success : .empty
                 self?.predictions = predictions
-                onComplete(predictions, nil)
+                onComplete(predictions)
             }
         }
     }
