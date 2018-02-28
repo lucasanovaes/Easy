@@ -4,7 +4,7 @@ An app that lets you search for taxis (fake api) based on user location, search 
 
 This app was created as an test.
 
-![overview](./Design/astronomer-overview.png)
+![overview](./Design/home.png)
 
 ### Architectural overview
 
