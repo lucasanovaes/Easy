@@ -44,7 +44,6 @@ final class MapController: UIViewController {
             searchComponentTopSpace.constant = 12
         }
         
-        mapView.delegate = self
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         
@@ -102,6 +101,7 @@ extension MapController: UserLocationManagerDelegate, GMSMapViewDelegate{
     
     // Called just one time, when got user location. Move camera to current position and set the source address.
     func userLocationManager(_ manager: CLLocationManager, didUpdateLocation location: CLLocation, camera: GMSCameraPosition) {
+        mapView.delegate = self
         mapView.camera = camera
         setSource()
     }

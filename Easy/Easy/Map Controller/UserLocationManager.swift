@@ -32,14 +32,21 @@ final class UserLocationManager: NSObject{
         self.locationManager.requestWhenInUseAuthorization()
         
         let locationServicesEneabled = CLLocationManager.locationServicesEnabled()
+        var hasAuthorizarion = false
         
         if locationServicesEneabled{
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            switch CLLocationManager.authorizationStatus() {
+            case .restricted, .denied:
+                hasAuthorizarion = false
+            case .authorizedAlways, .authorizedWhenInUse, .notDetermined:
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                locationManager.startUpdatingLocation()
+                hasAuthorizarion = true
+            }
         }
         
-        onComplete(locationServicesEneabled)
+        onComplete(hasAuthorizarion)
     }
 }
 

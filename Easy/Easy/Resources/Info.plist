@@ -37,8 +37,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to access your location. So, you can find the veeeery best Taxi!</string>
+    
+    <key>NSLocationUsageDescription</key>
+    <string>We need to access your location. So, you can find the veeeery best Taxi!</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string></string>
+    
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
