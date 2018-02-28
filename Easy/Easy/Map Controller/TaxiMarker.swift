@@ -11,7 +11,11 @@ import GoogleMaps
 
 final class TaxiMarker: GMSMarker{
     
+    var location: CLLocation
+    
     init(taxi: Taxi){
+        location = taxi.location
+        
         super.init()
         position = CLLocationCoordinate2D(latitude: taxi.lat, longitude: taxi.lng)
         title = taxi.driver_name

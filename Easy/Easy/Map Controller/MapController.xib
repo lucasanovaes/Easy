@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapController" customModule="Easy" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="u4o-Sm-7EP" id="J2l-ls-Ech"/>
+                <outlet property="nearestTaxiView" destination="mFe-iF-Uaa" id="A45-6C-9v4"/>
                 <outlet property="searchComponentTopSpace" destination="KOb-0q-U5A" id="dZ0-3Z-Xth"/>
                 <outlet property="sourceDestinationView" destination="DIz-yK-WyR" id="9e6-yD-KBk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

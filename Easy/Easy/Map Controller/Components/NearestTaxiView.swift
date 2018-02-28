@@ -8,11 +8,11 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 final class NearestTaxiView: UIView{
     
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,21 +26,21 @@ final class NearestTaxiView: UIView{
     
     private var contentView : UIView!
 
-    func setDistante(){
+    func setDistante(taxis: [TaxiMarker], sourceLocation: CLLocationCoordinate2D?){
         
+        guard let sourceLocation = sourceLocation else {
+            distanceLabel.text = ""
+            return
+        }
+        let locationForCalculate = CLLocation(latitude: sourceLocation.latitude, longitude: sourceLocation.longitude)
+        
+        let nearest = taxis.min(by: { $0.location.distance(from: locationForCalculate) < $1.location.distance(from: locationForCalculate) })
+        
+        if let nearestLocation = nearest?.location{
+            distanceLabel.text = "\(round(locationForCalculate.distance(from: nearestLocation) * 100) / 100) mts"
+        }
     }
-    
-    private func showDistanceLoader(){
-        distanceLabel.isHidden = true
-        activityIndicator.startAnimating()
-        activityIndicator.isHidden = false
-    }
-    
-    private func hideDistanceLoader(){
-        distanceLabel.isHidden = false
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
-    }
+
     
 }
 
@@ -53,7 +53,7 @@ extension NearestTaxiView{
         contentView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(contentView)
         
-        setupLayer()
+        setupLayer()        
     }
     
     private func loadViewFromNib() -> UIView! {

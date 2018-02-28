@@ -20,7 +20,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NearestTaxiView" customModule="Easy" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="8xm-sb-QDw" id="YKS-Wv-g83"/>
                 <outlet property="distanceLabel" destination="CB9-J0-IMn" id="k5w-ND-Ts9"/>
             </connections>
         </placeholder>
@@ -42,8 +41,8 @@
                         <constraint firstAttribute="height" constant="29" id="iD6-d4-Sg0"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-J0-IMn">
-                    <rect key="frame" x="16" y="51" width="116" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CB9-J0-IMn">
+                    <rect key="frame" x="16" y="65" width="116" height="0.0"/>
                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
                     <color key="textColor" white="0.0" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -62,19 +61,13 @@
                         <constraint firstAttribute="height" constant="27" id="c1Y-4t-gyf"/>
                     </constraints>
                 </imageView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-sb-QDw">
-                    <rect key="frame" x="65" y="50" width="20" height="20"/>
-                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="87w-LC-hsr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="0Wu-Xz-C2R"/>
-                <constraint firstItem="8xm-sb-QDw" firstAttribute="centerX" secondItem="KEi-VS-dkl" secondAttribute="centerX" id="4TL-wy-E3y"/>
                 <constraint firstItem="KEi-VS-dkl" firstAttribute="leading" secondItem="87w-LC-hsr" secondAttribute="trailing" constant="14.5" id="4zg-7k-g42"/>
                 <constraint firstItem="N1K-dQ-0D4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="6D2-FL-PAA"/>
-                <constraint firstItem="8xm-sb-QDw" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="7Jc-Wn-CYH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CB9-J0-IMn" secondAttribute="trailing" constant="8" id="BHv-MY-N2L"/>
-                <constraint firstItem="8xm-sb-QDw" firstAttribute="top" secondItem="KEi-VS-dkl" secondAttribute="bottom" constant="-3" id="BXL-h4-Gc0"/>
                 <constraint firstItem="KEi-VS-dkl" firstAttribute="top" secondItem="N1K-dQ-0D4" secondAttribute="bottom" constant="6" id="D7y-Dx-K4z"/>
                 <constraint firstItem="JNr-1K-cfN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="HWB-ie-nxx"/>
                 <constraint firstItem="CB9-J0-IMn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="NVv-3j-cD8"/>

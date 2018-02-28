@@ -14,11 +14,12 @@ protocol MapControllerDelegate: class{
     func showAddressSearchController(from: MapController, with type: AddressSearchController.SearchType)
 }
 
-class MapController: UIViewController {
+final class MapController: UIViewController {
 
-    @IBOutlet weak var searchComponentTopSpace: NSLayoutConstraint!
+    @IBOutlet private weak var searchComponentTopSpace: NSLayoutConstraint!
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var sourceDestinationView: SourceDestinationView!
+    @IBOutlet weak var nearestTaxiView: NearestTaxiView!
     
     let viewModel = MapControllerViewModel()
     
@@ -27,6 +28,7 @@ class MapController: UIViewController {
     init(delegate: MapControllerDelegate? = nil){
         self.delegate = delegate
         super.init(nibName: "MapController", bundle: nil)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,7 +59,7 @@ class MapController: UIViewController {
     }
     
     private func fetchTaxis(){
-        viewModel.fetchTaxisMarker { (taxis, error) in
+        viewModel.fetchTaxisMarker { [weak self] (taxis, error) in
             if error != nil{
                 // Handle error. Show some pop-up etc..
                 return
@@ -65,15 +67,18 @@ class MapController: UIViewController {
             
             taxis.forEach({ (taxiMarker) in
                 DispatchQueue.main.async {
-                    taxiMarker.map = self.mapView
+                    taxiMarker.map = self?.mapView
                 }
             })
+            
+            self?.nearestTaxiView.setDistante(taxis: taxis, sourceLocation: self?.viewModel.userLocationManager.sourceLocation)
         }
     }
     
     // Set new address source. Responsable for call reverseGeocoding and get all near taxis.
     private func setSource(){
         mapView.clear()
+        
         fetchTaxis()
         
         sourceDestinationView.showSourceLoader()

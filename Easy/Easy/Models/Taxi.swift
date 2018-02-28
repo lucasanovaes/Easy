@@ -13,6 +13,7 @@ struct Taxi{
     
     var lat: Double
     var lng: Double
+    var location: CLLocation
     var driver_name: String
     var driver_car: String
     
@@ -21,6 +22,7 @@ struct Taxi{
         self.lng = json["lng"] as? Double ?? 0.0
         self.driver_name = json["driver-name"] as? String ?? ""
         self.driver_car = json["driver-car"] as? String ?? ""
+        self.location = CLLocation(latitude: lat, longitude: lng)
     }
 
     static func taxisList(json: [String : AnyObject]?) -> [Taxi]{
