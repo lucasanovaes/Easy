@@ -47,8 +47,6 @@ This project use only GoogleMaps SDK and GooglePlaces SDK.
 
 Tested on Xcode 9.2, macOS 10.13.3.
 
-### Clone the repository
-
 ```
 $ git clone https://github.com/lucasanovaes/Easy.git
 $ cd ./Easy/Easy
