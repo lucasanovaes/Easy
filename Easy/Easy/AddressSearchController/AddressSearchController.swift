@@ -135,6 +135,7 @@ extension AddressSearchController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        view.endEditing(true)
         
         UILoader.shared.showLoader(in: view)
         viewModel.findAddress(viewModel.prediction(at: indexPath).placeID) {(place, error) in
