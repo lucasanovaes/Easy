@@ -60,7 +60,7 @@ final class MapController: UIViewController {
     private func fetchTaxis(){
         viewModel.fetchTaxisMarker { [weak self] (taxis, error) in
             if error != nil{
-                UIAlertController.showAlertWith(title: "Sorry", and: "We cant fetch taxis right now...Please, try again later.", in: self!)
+                UIAlertController.showAlertWith(title: "Sorry", and: "We cant fetch taxis right now...Please, verify your connections and try again later.", in: self!)
                 return
             }
             
