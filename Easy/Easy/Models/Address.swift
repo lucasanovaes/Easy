@@ -23,6 +23,7 @@ struct Address{
         self.neighborhood = address.subLocality ?? ""
         self.coordinate = address.coordinate
     }
-
+    
 }
+
 

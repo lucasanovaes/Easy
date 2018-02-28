@@ -39,6 +39,22 @@ final class MapControllerViewModel {
         }
     }
     
+    func nearestTaxiInMeters(taxis: [TaxiMarker]) -> String{
+        guard let sourceLocation = userLocationManager.sourceLocation else {
+            return ""
+        }
+        
+        let locationForCalculate = CLLocation(latitude: sourceLocation.latitude, longitude: sourceLocation.longitude)
+        
+        let nearest = taxis.min(by: { $0.location.distance(from: locationForCalculate) < $1.location.distance(from: locationForCalculate) })
+        
+        if let nearestLocation = nearest?.location{
+            return "\(round(locationForCalculate.distance(from: nearestLocation) * 100) / 100) mts"
+        }
+        
+        return ""
+    }
+    
     private func reverseGeocodingFrom(location: CLLocationCoordinate2D, onComplete: @escaping (Address) -> Void){
         let geocoder = GMSGeocoder()
         geocoder.reverseGeocodeCoordinate(location) { (response, error) in

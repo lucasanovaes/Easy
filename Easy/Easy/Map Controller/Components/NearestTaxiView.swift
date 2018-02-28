@@ -26,21 +26,9 @@ final class NearestTaxiView: UIView{
     
     private var contentView : UIView!
 
-    func setDistante(taxis: [TaxiMarker], sourceLocation: CLLocationCoordinate2D?){
-        
-        guard let sourceLocation = sourceLocation else {
-            distanceLabel.text = ""
-            return
-        }
-        let locationForCalculate = CLLocation(latitude: sourceLocation.latitude, longitude: sourceLocation.longitude)
-        
-        let nearest = taxis.min(by: { $0.location.distance(from: locationForCalculate) < $1.location.distance(from: locationForCalculate) })
-        
-        if let nearestLocation = nearest?.location{
-            distanceLabel.text = "\(round(locationForCalculate.distance(from: nearestLocation) * 100) / 100) mts"
-        }
+    func setNearestTaxis(in meters: String){
+        self.distanceLabel.text = meters
     }
-
     
 }
 

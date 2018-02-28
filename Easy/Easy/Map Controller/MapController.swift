@@ -58,19 +58,19 @@ final class MapController: UIViewController {
     }
     
     private func fetchTaxis(){
-        viewModel.fetchTaxisMarker { [weak self] (taxis, error) in
+        viewModel.fetchTaxisMarker { (taxis, error) in
             if error != nil{
-                UIAlertController.showAlertWith(title: "Sorry", and: "We cant fetch taxis right now...Please, verify your connections and try again later.", in: self!)
+                UIAlertController.showAlertWith(title: "Sorry", and: "We cant fetch taxis right now...Please, verify your connections and try again later.", in: self)
                 return
             }
             
             taxis.forEach({ (taxiMarker) in
                 DispatchQueue.main.async {
-                    taxiMarker.map = self?.mapView
+                    taxiMarker.map = self.mapView
                 }
             })
             
-            self?.nearestTaxiView.setDistante(taxis: taxis, sourceLocation: self?.viewModel.userLocationManager.sourceLocation)
+            self.nearestTaxiView.setNearestTaxis(in: self.viewModel.nearestTaxiInMeters(taxis: taxis))
         }
     }
     

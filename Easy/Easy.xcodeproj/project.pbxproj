@@ -23,6 +23,7 @@
 		4CBF369420447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */; };
 		4CBF369520447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */; };
 		4CBF36972044839500CD2DB9 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */; };
+		4CF6C094204728D50045F9BC /* GMSAddressMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF6C093204728D50045F9BC /* GMSAddressMock.swift */; };
 		59066A82E204D41928696A4B /* Pods_Easy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86FE2ADA7175569A9880340 /* Pods_Easy.framework */; };
 		DE2A432C203F983300949DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2A4329203F983300949DB0 /* Assets.xcassets */; };
 		DE2A432D203F983300949DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2A432A203F983300949DB0 /* LaunchScreen.storyboard */; };
@@ -68,6 +69,7 @@
 		4CBF369220447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesPredictionTableViewCell.swift; sourceTree = "<group>"; };
 		4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressesPredictionTableViewCell.xib; sourceTree = "<group>"; };
 		4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		4CF6C093204728D50045F9BC /* GMSAddressMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSAddressMock.swift; sourceTree = "<group>"; };
 		92B99FAFD21F5562973836B1 /* Pods-Easy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy/Pods-Easy.release.xcconfig"; sourceTree = "<group>"; };
 		B4FE9A78A53B907985B5F36B /* Pods-EasyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyTests/Pods-EasyTests.release.xcconfig"; sourceTree = "<group>"; };
 		D26F5241A2A7AD63B64E40EB /* Pods_EasyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				4C27D6C62040372E00863983 /* Network */,
 				DE2A4330203F9E3C00949DB0 /* Map Controller */,
 				4C4B25BE204429DF00082D0D /* AddressSearchController */,
+				4CF6C092204728BF0045F9BC /* Mocks */,
 				DE2A433720437DD400949DB0 /* Extensions */,
 				DE2A4328203F983300949DB0 /* Resources */,
 				DE3C81502044E0D600430EA0 /* UILoader.swift */,
@@ -196,6 +199,14 @@
 				4CBF369320447F1700CD2DB9 /* AdressesPredictionTableViewCell.xib */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4CF6C092204728BF0045F9BC /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				4CF6C093204728D50045F9BC /* GMSAddressMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		75C685BE51FED2A4A302941D /* Frameworks */ = {
@@ -480,6 +491,7 @@
 				DE2A432F203F989900949DB0 /* Coordinator.swift in Sources */,
 				DE3C81572044E5D400430EA0 /* Taxi.swift in Sources */,
 				4C27D6C82040373600863983 /* EasyAPI.swift in Sources */,
+				4CF6C094204728D50045F9BC /* GMSAddressMock.swift in Sources */,
 				DE2A4333203F9E5100949DB0 /* MapController.swift in Sources */,
 				4C27D6CC2040403200863983 /* TaxiMarker.swift in Sources */,
 				DE2A433C2043953300949DB0 /* Address.swift in Sources */,
