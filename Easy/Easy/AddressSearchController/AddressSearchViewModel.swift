@@ -22,7 +22,8 @@ final class AddressSearchViewModel{
     var searchState: SearchState = .status_null
     
     private let gmsPlacesClient = GMSPlacesClient()
-    var predictions: [GMSAutocompletePrediction] = []
+    
+    var predictions: [AutocompletePrediction] = []
     
     func viewConfiguration() -> UIView{
         let view = UIView()
@@ -45,11 +46,11 @@ final class AddressSearchViewModel{
         return predictions[indexPath.row].attributedFullText
     }
     
-    func prediction(at indexPath: IndexPath) -> GMSAutocompletePrediction{
+    func prediction(at indexPath: IndexPath) -> AutocompletePrediction{
         return predictions[indexPath.row]
     }
     
-    func findAddres(with text: String?, onComplete: @escaping ([GMSAutocompletePrediction]) -> Void){
+    func findAddres(with text: String?, onComplete: @escaping ([AutocompletePrediction]) -> Void){
         if text == nil || text == ""{
             searchState = .status_null
             onComplete([])
@@ -69,8 +70,9 @@ final class AddressSearchViewModel{
             
             if let predictions = predictions {
                 self?.searchState = predictions.count > 0 ? .success : .empty
-                self?.predictions = predictions
-                onComplete(predictions)
+                let transformedPredictions = GMSAutocompletePrediction.transform(predictions)
+                self?.predictions = transformedPredictions
+                onComplete(transformedPredictions)
             }
         }
     }

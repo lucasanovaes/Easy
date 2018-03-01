@@ -39,6 +39,17 @@ final class MapControllerViewModel {
         }
     }
     
+    private func reverseGeocodingFrom(location: CLLocationCoordinate2D, onComplete: @escaping (Address) -> Void){
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(location) { (response, error) in
+            if error != nil { return }
+            
+            if let address = response?.firstResult(){
+                onComplete(Address(address: address))
+            }
+        }
+    }
+    
     func nearestTaxiInMeters(taxis: [TaxiMarker]) -> String{
         guard let sourceLocation = userLocationManager.sourceLocation else {
             return ""
@@ -53,17 +64,6 @@ final class MapControllerViewModel {
         }
         
         return ""
-    }
-    
-    private func reverseGeocodingFrom(location: CLLocationCoordinate2D, onComplete: @escaping (Address) -> Void){
-        let geocoder = GMSGeocoder()
-        geocoder.reverseGeocodeCoordinate(location) { (response, error) in
-            if error != nil { return }
-            
-            if let address = response?.firstResult(){
-                onComplete(Address(address: address))
-            }
-        }
     }
     
 }

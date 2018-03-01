@@ -8,6 +8,7 @@
 
 import XCTest
 import GoogleMaps
+import GooglePlaces
 @testable import Easy
 
 class EasyTests: XCTestCase {
@@ -15,14 +16,25 @@ class EasyTests: XCTestCase {
     private lazy var taxisData = EasyTests.data(for: "Taxis")
     var mapControllerViewModel: MapControllerViewModel!
     
+    var addressSearchViewModel: AddressSearchViewModel!
+    var prediction01: AutocompletePrediction!
+    var prediction02: AutocompletePrediction!
+    
     override func setUp() {
         super.setUp()
         mapControllerViewModel = MapControllerViewModel()
+        addressSearchViewModel = AddressSearchViewModel()
+        prediction01 = AutocompletePrediction(attributedFullText: NSAttributedString(string: "Av. Paulista"), placeID: "123456")
+        prediction02 = AutocompletePrediction(attributedFullText: NSAttributedString(string: "Av. Hadock Lobo"), placeID: "654321")
     }
     
     override func tearDown() {
         super.tearDown()
         mapControllerViewModel = nil
+        addressSearchViewModel = nil
+        
+        prediction01 = nil
+        prediction02 = nil
     }
     
     // MARK: Support methods
@@ -67,12 +79,14 @@ class EasyTests: XCTestCase {
         XCTAssert(address.coordinate?.longitude == -46.123321, "'Address' setting wrong value for 'coordinate - longitude'")
     }
     
+    // MARK: Testing MapControllerViewModel
+    
     func test_calculating_nearest_taxi_from_given_location(){
-        
         let viewModel = MapControllerViewModel()
         viewModel.userLocationManager.sourceLocation = CLLocationCoordinate2D(latitude: -23.3013639363362185, longitude: -85.30433945164535) // mudar para uma localização real
         
         let json = try? JSONSerialization.jsonObject(with: taxisData, options:.allowFragments) as! [String : AnyObject]
+        
         let taxis = Taxi.taxisList(json: json)
         
         let taxisMarker = taxis.map({ TaxiMarker(taxi: $0) })
@@ -82,6 +96,50 @@ class EasyTests: XCTestCase {
     }
     
     
+    // MARK: Testing AddressSearchViewModel
+    func test_if_number_of_predctions_are_beign_set_properly_in_tableView(){
+        
+        addressSearchViewModel.searchState = .success
+        addressSearchViewModel.predictions = [prediction01, prediction02]
+        
+        XCTAssert(addressSearchViewModel.numberOfPredictions(at: 0) == 2, "Wrong number of predctions in autocomplete")
+    }
     
+    func test_number_of_rows_returned_in_status_null_state(){
+        addressSearchViewModel.searchState = .status_null
+        addressSearchViewModel.predictions = [prediction01, prediction02]
+        
+        XCTAssert(addressSearchViewModel.numberOfPredictions(at: 0) == 1, "Wrong number of predictions in status null state")
+    }
+    
+    func test_number_of_rows_returned_in_empty_state(){
+        addressSearchViewModel.searchState = .empty
+        addressSearchViewModel.predictions = [prediction01, prediction02]
+        
+        XCTAssert(addressSearchViewModel.numberOfPredictions(at: 0) == 1, "Wrong number of predictions in empty state")
+    }
+    
+    func test_number_of_rows_returned_in_error_state(){
+        addressSearchViewModel.searchState = .error
+        addressSearchViewModel.predictions = [prediction01, prediction02]
+        
+        XCTAssert(addressSearchViewModel.numberOfPredictions(at: 0) == 1, "Wrong number of predictions in error state")
+    }
+    
+    func test_number_of_rows_returned_in_success_state(){
+        addressSearchViewModel.searchState = .success
+        addressSearchViewModel.predictions = [prediction01, prediction02, prediction02]
+        
+        XCTAssert(addressSearchViewModel.numberOfPredictions(at: 0) == 3, "Wrong number of predictions in success state")
+    }
+    
+    func test_getting_prediction_text_at_specific_row(){
+        addressSearchViewModel.searchState = .success
+        addressSearchViewModel.predictions = [prediction01, prediction02]
+        
+        XCTAssert(addressSearchViewModel.predictionText(at: IndexPath(row: 0, section: 0)) == NSAttributedString(string: "Av. Paulista"))
+        XCTAssert(addressSearchViewModel.predictionText(at: IndexPath(row: 1, section: 0)) == NSAttributedString(string: "Av. Hadock Lobo"))
+    }
+
 }
 

@@ -36,6 +36,8 @@
 		DE3C81512044E0D600430EA0 /* UILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3C81502044E0D600430EA0 /* UILoader.swift */; };
 		DE3C81552044E54D00430EA0 /* TaxiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3C81542044E54D00430EA0 /* TaxiServices.swift */; };
 		DE3C81572044E5D400430EA0 /* Taxi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3C81562044E5D400430EA0 /* Taxi.swift */; };
+		DEC5554D204788B90081B90A /* AutocompletePrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5554C204788B90081B90A /* AutocompletePrediction.swift */; };
+		DEC5554F20478A6A0081B90A /* GMSAutocompleteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5554E20478A6A0081B90A /* GMSAutocompleteExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		DE3C81502044E0D600430EA0 /* UILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoader.swift; sourceTree = "<group>"; };
 		DE3C81542044E54D00430EA0 /* TaxiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiServices.swift; sourceTree = "<group>"; };
 		DE3C81562044E5D400430EA0 /* Taxi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taxi.swift; sourceTree = "<group>"; };
+		DEC5554C204788B90081B90A /* AutocompletePrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompletePrediction.swift; sourceTree = "<group>"; };
+		DEC5554E20478A6A0081B90A /* GMSAutocompleteExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSAutocompleteExtension.swift; sourceTree = "<group>"; };
 		E86FE2ADA7175569A9880340 /* Pods_Easy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -177,6 +181,7 @@
 		4C4B25BE204429DF00082D0D /* AddressSearchController */ = {
 			isa = PBXGroup;
 			children = (
+				DEC5554B204788AD0081B90A /* Models */,
 				4CBF369120447EE300CD2DB9 /* Components */,
 				4C4B25BF204429F900082D0D /* AddressSearchController.swift */,
 				4C4B25C120442A0D00082D0D /* AddressSearchViewModel.swift */,
@@ -258,6 +263,7 @@
 			children = (
 				DE2A433820437DDB00949DB0 /* UIAlertControllerExtension.swift */,
 				4CBF36962044839500CD2DB9 /* UITableViewExtension.swift */,
+				DEC5554E20478A6A0081B90A /* GMSAutocompleteExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,6 +277,14 @@
 			name = Models;
 			path = Easy/Models;
 			sourceTree = SOURCE_ROOT;
+		};
+		DEC5554B204788AD0081B90A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DEC5554C204788B90081B90A /* AutocompletePrediction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -474,7 +488,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -490,6 +505,7 @@
 			files = (
 				DE2A432F203F989900949DB0 /* Coordinator.swift in Sources */,
 				DE3C81572044E5D400430EA0 /* Taxi.swift in Sources */,
+				DEC5554F20478A6A0081B90A /* GMSAutocompleteExtension.swift in Sources */,
 				4C27D6C82040373600863983 /* EasyAPI.swift in Sources */,
 				4CF6C094204728D50045F9BC /* GMSAddressMock.swift in Sources */,
 				DE2A4333203F9E5100949DB0 /* MapController.swift in Sources */,
@@ -502,6 +518,7 @@
 				4CBF369420447F1700CD2DB9 /* AdressesPredictionTableViewCell.swift in Sources */,
 				4CA6867C2045C7870015938D /* NearestTaxiView.swift in Sources */,
 				4C27D6A7203F456F00863983 /* AppDelegate.swift in Sources */,
+				DEC5554D204788B90081B90A /* AutocompletePrediction.swift in Sources */,
 				4C4B25C0204429F900082D0D /* AddressSearchController.swift in Sources */,
 				DE2A4336203FA04000949DB0 /* UserLocationManager.swift in Sources */,
 				DE2A433920437DDB00949DB0 /* UIAlertControllerExtension.swift in Sources */,

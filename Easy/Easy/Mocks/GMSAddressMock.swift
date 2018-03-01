@@ -9,7 +9,7 @@
 import Foundation
 import GoogleMaps
 
-class GMSAddressMock: GMSAddress{
+final class GMSAddressMock: GMSAddress{
     
     var _thoroughfare: String = ""
     var _locality: String = ""

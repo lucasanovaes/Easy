@@ -36,7 +36,7 @@ TaxiServices is responsable for making a request to the fake api `http://quasina
 
 #### Unit tests
 
-For this project, are beign tested View Models and data parser.
+For this project, are beign tested some of the methods in View Models and data parser. 
 
 #### Dependencies (cocoapods)
 
